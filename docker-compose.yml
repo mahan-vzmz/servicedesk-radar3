@@ -1,25 +1,31 @@
 services:
 
   qdrant:
-
     image: qdrant/qdrant
-
     container_name: qdrant
-
     ports:
       - "6333:6333"
-
     volumes:
       - ./qdrant_storage:/qdrant/storage
 
   api:
-
     build: .
-
     container_name: ai_helpdesk_api
-
     ports:
       - "8000:8000"
-
     depends_on:
       - qdrant
+    environment:
+      - EMBEDDING_MODEL=paraphrase-multilingual-MiniLM-L12-v2
+      - RERANKER_MODEL=cross-encoder/ms-marco-MiniLM-L-6-v2
+      - INCIDENT_TIME_WINDOW_MINUTES=30
+      - MIN_SIMILAR_TICKETS_MEDIUM=2
+      - MIN_SIMILAR_TICKETS_HIGH=4
+      - MIN_RERANK_SCORE=0.5
+      - SIMILARITY_THRESHOLD_HIGH=0.85
+      - SIMILARITY_THRESHOLD_MEDIUM=0.75
+    volumes:
+      - huggingface_cache:/root/.cache/huggingface
+
+volumes:
+  huggingface_cache:
