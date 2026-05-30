@@ -1,4 +1,10 @@
+import os
 from sentence_transformers import SentenceTransformer
+
+EMBEDDING_MODEL = os.getenv(
+    "EMBEDDING_MODEL",
+    "paraphrase-multilingual-MiniLM-L12-v2"
+)
 
 
 class EmbeddingService:
@@ -10,10 +16,10 @@ class EmbeddingService:
 
         if cls._model is None:
 
-            print("Loading embedding model...")
+            print(f"Loading embedding model: {EMBEDDING_MODEL}")
 
             cls._model = SentenceTransformer(
-                r"C:\Users\Victus 16\PycharmProjects\servicedesk-radar\paraphrase-multilingual-MiniLM-L12-v2"
+                EMBEDDING_MODEL
             )
 
         return cls._model
@@ -29,6 +35,3 @@ class EmbeddingService:
         embedding = model.encode(text)
 
         return embedding.tolist()
-
-
-
