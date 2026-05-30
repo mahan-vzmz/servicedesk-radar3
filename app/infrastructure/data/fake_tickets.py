@@ -1,57 +1,77 @@
-articles = [
+from datetime import datetime, timedelta
+
+
+tickets = [
 
     {
         "id": 1,
 
-        "title":
-            "VPN Troubleshooting Guide",
+        "title": "VPN وصل نمیشه",
 
-        "content":
-            """
-            If VPN login fails,
-            verify MFA token,
-            internet connectivity
-            and VPN credentials.
-            """
+        "description":
+            "کاربر نمیتونه به VPN متصل شود",
+
+        "department": "IT",
+
+        "priority": "high",
+
+        "tenant": "company_a",
+
+        "created_at":
+            datetime.now() - timedelta(minutes=5)
     },
 
     {
         "id": 2,
 
-        "title":
-            "MFA Reset Procedure",
+        "title": "VPN authentication failed",
 
-        "content":
-            """
-            Reset MFA from security portal
-            and enroll your device again.
-            """
+        "description":
+            "خطای MFA دریافت میشود",
+
+        "department": "IT",
+
+        "priority": "high",
+
+        "tenant": "company_a",
+
+        "created_at":
+            datetime.now() - timedelta(minutes=8)
     },
 
     {
         "id": 3,
 
-        "title":
-            "Outlook Login Issues",
+        "title": "حقوق این ماه اشتباه است",
 
-        "content":
-            """
-            Verify Exchange connectivity,
-            mailbox status
-            and user credentials.
-            """
+        "description":
+            "salary calculation مشکل دارد",
+
+        "department": "HR",
+
+        "priority": "medium",
+
+        "tenant": "company_a",
+
+        "created_at":
+            datetime.now() - timedelta(minutes=20)
     },
 
     {
         "id": 4,
 
-        "title":
-            "Printer Troubleshooting",
+        "title": "پرینتر آفلاین شده",
 
-        "content":
-            """
-            Restart print spooler service
-            and verify printer connectivity.
-            """
+        "description":
+            "printer در طبقه دوم کار نمیکند",
+
+        "department": "IT",
+
+        "priority": "low",
+
+        "tenant": "company_b",
+
+        "created_at":
+            datetime.now() - timedelta(hours=2)
     }
 ]
