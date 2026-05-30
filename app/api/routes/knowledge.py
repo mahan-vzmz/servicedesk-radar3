@@ -1,11 +1,8 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 
-from app.services.knowledge_service import (
-    KnowledgeService
-)
+from app.services.knowledge_service import KnowledgeService
 
 router = APIRouter()
-
 service = KnowledgeService()
 
 
@@ -15,11 +12,15 @@ async def search_articles(
     top_k: int = 5
 ):
 
-    results = service.search_articles(
-        query=query,
-        top_k=top_k
-    )
+    try:
+        results = service.search_articles(
+            query=query,
+            top_k=top_k
+        )
+        return {"results": results}
 
-    return {
-        "results": results
-    }
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=str(e)
+        )
