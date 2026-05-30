@@ -1,0 +1,25 @@
+services:
+
+  qdrant:
+
+    image: qdrant/qdrant
+
+    container_name: qdrant
+
+    ports:
+      - "6333:6333"
+
+    volumes:
+      - ./qdrant_storage:/qdrant/storage
+
+  api:
+
+    build: .
+
+    container_name: ai_helpdesk_api
+
+    ports:
+      - "8000:8000"
+
+    depends_on:
+      - qdrant
