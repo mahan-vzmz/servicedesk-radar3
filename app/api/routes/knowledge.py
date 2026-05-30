@@ -1,0 +1,25 @@
+from fastapi import APIRouter
+
+from app.services.knowledge_service import (
+    KnowledgeService
+)
+
+router = APIRouter()
+
+service = KnowledgeService()
+
+
+@router.get("/search")
+async def search_articles(
+    query: str,
+    top_k: int = 5
+):
+
+    results = service.search_articles(
+        query=query,
+        top_k=top_k
+    )
+
+    return {
+        "results": results
+    }
