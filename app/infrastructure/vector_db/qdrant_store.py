@@ -48,11 +48,7 @@ def create_collection():
 
 
 def insert_ticket(ticket, embedding):
-    """
-    مشخصات 9.7: Upsert تیکت با payload کامل.
-    GAP-1: embedding_model در payload ذخیره می‌شود.
-    GAP-2: فیلد status ذخیره می‌شود تا فیلتر بسته/حذف‌شده ممکن باشد.
-    """
+
     client.upsert(
         collection_name=TICKET_COLLECTION,
         points=[
@@ -79,15 +75,10 @@ def search_tickets(
     top_k=5,
     department=None,
     tenant=None,
-    exclude_closed=True     # GAP-2: فیلتر تیکت‌های بسته
+    exclude_closed=True    
 ):
-    """
-    مشخصات 9.4 و 9.7: جستجوی معنایی با فیلتر metadata.
-    GAP-2: تیکت‌های closed/deleted از نتایج حذف می‌شوند.
-    """
     must_conditions = []
 
-    # GAP-2: فیلتر status — فقط تیکت‌های open در نتایج باشند
     if exclude_closed:
         must_conditions.append(
             FieldCondition(
@@ -143,14 +134,9 @@ def search_tickets(
     return formatted_results
 
 
-# ─── Knowledge Functions ──────────────────────────────────────────────────────
 
 def insert_article(article, embedding):
-    """
-    مشخصات 9.5: ذخیره مقاله با payload کامل.
-    GAP-1: embedding_model در payload.
-    GAP-4: category و tags در payload.
-    """
+
     client.upsert(
         collection_name=KNOWLEDGE_COLLECTION,
         points=[
@@ -170,10 +156,7 @@ def insert_article(article, embedding):
 
 
 def search_articles(embedding, top_k=5):
-    """
-    مشخصات 9.5: جستجو در پایگاه دانش.
-    GAP-4: category و tags در خروجی برگردانده می‌شوند.
-    """
+
     results = client.search(
         collection_name=KNOWLEDGE_COLLECTION,
         query_vector=embedding,
