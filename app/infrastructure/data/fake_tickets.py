@@ -2,7 +2,6 @@ from datetime import datetime, timedelta
 
 now = datetime.now()
 
-
 tickets = [
 
     {
@@ -12,6 +11,7 @@ tickets = [
         "department": "IT",
         "priority": "high",
         "tenant": "company_a",
+        "status": "open",
         "created_at": (now - timedelta(minutes=5)).isoformat()
     },
     {
@@ -21,6 +21,7 @@ tickets = [
         "department": "IT",
         "priority": "high",
         "tenant": "company_a",
+        "status": "open",
         "created_at": (now - timedelta(minutes=10)).isoformat()
     },
     {
@@ -30,6 +31,7 @@ tickets = [
         "department": "IT",
         "priority": "high",
         "tenant": "company_a",
+        "status": "open",
         "created_at": (now - timedelta(minutes=20)).isoformat()
     },
     {
@@ -39,6 +41,7 @@ tickets = [
         "department": "IT",
         "priority": "medium",
         "tenant": "company_b",
+        "status": "open",
         "created_at": (now - timedelta(hours=2)).isoformat()
     },
 
@@ -49,6 +52,7 @@ tickets = [
         "department": "Support",
         "priority": "medium",
         "tenant": "company_a",
+        "status": "open",
         "created_at": (now - timedelta(hours=1)).isoformat()
     },
     {
@@ -58,6 +62,7 @@ tickets = [
         "department": "Support",
         "priority": "medium",
         "tenant": "company_a",
+        "status": "open",
         "created_at": (now - timedelta(hours=3)).isoformat()
     },
     {
@@ -67,6 +72,7 @@ tickets = [
         "department": "Support",
         "priority": "low",
         "tenant": "company_b",
+        "status": "open",
         "created_at": (now - timedelta(hours=5)).isoformat()
     },
 
@@ -77,6 +83,7 @@ tickets = [
         "department": "Operations",
         "priority": "low",
         "tenant": "company_a",
+        "status": "open",
         "created_at": (now - timedelta(hours=4)).isoformat()
     },
     {
@@ -86,6 +93,7 @@ tickets = [
         "department": "Operations",
         "priority": "low",
         "tenant": "company_b",
+        "status": "open",
         "created_at": (now - timedelta(hours=6)).isoformat()
     },
 
@@ -96,6 +104,7 @@ tickets = [
         "department": "IT",
         "priority": "high",
         "tenant": "company_a",
+        "status": "open",
         "created_at": (now - timedelta(hours=1)).isoformat()
     },
     {
@@ -105,6 +114,7 @@ tickets = [
         "department": "IT",
         "priority": "medium",
         "tenant": "company_b",
+        "status": "open",
         "created_at": (now - timedelta(hours=7)).isoformat()
     },
 
@@ -115,6 +125,7 @@ tickets = [
         "department": "HR",
         "priority": "medium",
         "tenant": "company_a",
+        "status": "open",
         "created_at": (now - timedelta(hours=2)).isoformat()
     },
     {
@@ -124,6 +135,7 @@ tickets = [
         "department": "HR",
         "priority": "low",
         "tenant": "company_b",
+        "status": "open",
         "created_at": (now - timedelta(hours=8)).isoformat()
     },
 
@@ -134,6 +146,7 @@ tickets = [
         "department": "Operations",
         "priority": "high",
         "tenant": "company_a",
+        "status": "open",
         "created_at": (now - timedelta(hours=3)).isoformat()
     },
     {
@@ -143,6 +156,18 @@ tickets = [
         "department": "Operations",
         "priority": "low",
         "tenant": "company_b",
+        "status": "open",
         "created_at": (now - timedelta(hours=9)).isoformat()
+    },
+
+    {
+        "id": 16,
+        "title": "Old VPN issue resolved",
+        "description": "VPN was failing last month due to MFA misconfiguration, now resolved.",
+        "department": "IT",
+        "priority": "low",
+        "tenant": "company_a",
+        "status": "closed",
+        "created_at": (now - timedelta(days=30)).isoformat()
     },
 ]
