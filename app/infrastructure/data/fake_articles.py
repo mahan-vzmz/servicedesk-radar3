@@ -3,6 +3,8 @@ articles = [
     {
         "id": 1,
         "title": "VPN Troubleshooting Guide",
+        "category": "network",
+        "tags": ["vpn", "mfa", "authentication", "connectivity"],
         "content": (
             "If VPN login fails, first verify your internet connection is active. "
             "Check that your MFA token is valid and not expired. "
@@ -14,6 +16,8 @@ articles = [
     {
         "id": 2,
         "title": "MFA Reset Procedure",
+        "category": "security",
+        "tags": ["mfa", "2fa", "authentication", "reset"],
         "content": (
             "To reset MFA, log into the security portal with your manager approval. "
             "Remove your existing device from the enrolled devices list. "
@@ -25,6 +29,8 @@ articles = [
     {
         "id": 3,
         "title": "Outlook Login Issues",
+        "category": "email",
+        "tags": ["outlook", "exchange", "email", "login"],
         "content": (
             "If Outlook cannot connect, verify Exchange server connectivity first. "
             "Check that your mailbox is active and not over quota. "
@@ -36,6 +42,8 @@ articles = [
     {
         "id": 4,
         "title": "Printer Troubleshooting",
+        "category": "hardware",
+        "tags": ["printer", "spooler", "offline", "print"],
         "content": (
             "If the printer is offline, restart the print spooler service first. "
             "Go to Services in Windows and restart Print Spooler. "
@@ -47,6 +55,8 @@ articles = [
     {
         "id": 5,
         "title": "Network Connectivity Issues",
+        "category": "network",
+        "tags": ["network", "internet", "dns", "connectivity"],
         "content": (
             "If there is no internet access, restart your network adapter first. "
             "Check the router and switch status lights. "
@@ -58,6 +68,8 @@ articles = [
     {
         "id": 6,
         "title": "Account Unlock Procedure",
+        "category": "account",
+        "tags": ["account", "locked", "active-directory", "unlock"],
         "content": (
             "Locked accounts can be unlocked from Active Directory by IT admins. "
             "Submit a ticket with your employee ID and manager approval. "
@@ -69,6 +81,8 @@ articles = [
     {
         "id": 7,
         "title": "Password Reset Guide",
+        "category": "account",
+        "tags": ["password", "reset", "self-service", "credentials"],
         "content": (
             "Use the self-service password reset portal at reset.company.com. "
             "Verify your identity using your registered email or phone. "
@@ -80,6 +94,8 @@ articles = [
     {
         "id": 8,
         "title": "Email Sending Problems",
+        "category": "email",
+        "tags": ["email", "outlook", "exchange", "outbox"],
         "content": (
             "If emails are stuck in outbox, check Exchange server connectivity. "
             "Verify your mailbox is not over the storage quota. "
@@ -91,6 +107,8 @@ articles = [
     {
         "id": 9,
         "title": "Laptop Hardware Issues",
+        "category": "hardware",
+        "tags": ["laptop", "power", "hardware", "battery"],
         "content": (
             "If the laptop does not power on, check the power adapter and cable. "
             "Try a different power socket to rule out electrical issues. "
@@ -102,6 +120,8 @@ articles = [
     {
         "id": 10,
         "title": "Monitor and Display Troubleshooting",
+        "category": "hardware",
+        "tags": ["monitor", "display", "hdmi", "screen"],
         "content": (
             "If the monitor shows no signal, check the cable connection on both ends. "
             "Try a different cable type such as HDMI or DisplayPort. "
