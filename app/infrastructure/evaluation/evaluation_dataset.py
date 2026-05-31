@@ -1,35 +1,72 @@
 EVALUATION_DATASET = [
 
-    {
-        "query": "VPN MFA issue",
-        "relevant_ids": [1, 2, 3, 4] 
-    },
-    {
-        "query": "VPN login failed",
-        "relevant_ids": [1, 2, 3, 4]
-    },
-    {
-        "query": "cannot connect to VPN",
-        "relevant_ids": [1, 2, 3, 4]
-    },
-    {
-        "query": "Outlook login problem",
-        "relevant_ids": [5, 6, 7]  
-    },
-    {
-        "query": "email not working",
-        "relevant_ids": [5, 6, 7]
-    },
-    {
-        "query": "printer offline",
-        "relevant_ids": [8, 9] 
-    },
-    {
-        "query": "no internet access",
-        "relevant_ids": [10, 11]
-    },
-    {
-        "query": "account locked",
-        "relevant_ids": [12, 13]
-    },
+    {"query": "VPN MFA issue",                    "relevant_ids": [1, 2, 3, 4], "category": "network"},
+    {"query": "VPN login failed",                 "relevant_ids": [1, 2, 3, 4], "category": "network"},
+    {"query": "cannot connect to VPN",            "relevant_ids": [1, 2, 3, 4], "category": "network"},
+    {"query": "VPN authentication error",         "relevant_ids": [1, 2, 3, 4], "category": "network"},
+    {"query": "VPN client not working",           "relevant_ids": [1, 2, 3, 4], "category": "network"},
+    {"query": "MFA token rejected on VPN",        "relevant_ids": [1, 2, 3, 4], "category": "network"},
+    {"query": "unable to authenticate VPN",       "relevant_ids": [1, 2, 3, 4], "category": "network"},
+    {"query": "VPN drops after MFA step",         "relevant_ids": [1, 2, 3, 4], "category": "network"},
+    {"query": "VPN connection issue",             "relevant_ids": [1, 2, 3, 4], "category": "network"},
+    {"query": "remote access not working",        "relevant_ids": [1, 2, 3, 4], "category": "network"},
+
+    {"query": "Outlook login problem",            "relevant_ids": [5, 6, 7],    "category": "email"},
+    {"query": "email not working",                "relevant_ids": [5, 6, 7],    "category": "email"},
+    {"query": "cannot send emails",               "relevant_ids": [5, 6, 7],    "category": "email"},
+    {"query": "Outlook password prompt loop",     "relevant_ids": [5, 6, 7],    "category": "email"},
+    {"query": "Exchange connection error",        "relevant_ids": [5, 6, 7],    "category": "email"},
+    {"query": "mailbox not syncing",              "relevant_ids": [5, 6, 7],    "category": "email"},
+    {"query": "emails stuck in outbox",           "relevant_ids": [5, 6, 7],    "category": "email"},
+    {"query": "Outlook not connecting",           "relevant_ids": [5, 6, 7],    "category": "email"},
+    {"query": "email account disconnected",       "relevant_ids": [5, 6, 7],    "category": "email"},
+    {"query": "cannot receive emails",            "relevant_ids": [5, 6, 7],    "category": "email"},
+
+    {"query": "printer offline",                  "relevant_ids": [8, 9],       "category": "hardware"},
+    {"query": "cannot print documents",           "relevant_ids": [8, 9],       "category": "hardware"},
+    {"query": "print jobs stuck in queue",        "relevant_ids": [8, 9],       "category": "hardware"},
+    {"query": "printer not responding",           "relevant_ids": [8, 9],       "category": "hardware"},
+    {"query": "print spooler error",              "relevant_ids": [8, 9],       "category": "hardware"},
+    {"query": "printer shows offline status",     "relevant_ids": [8, 9],       "category": "hardware"},
+    {"query": "documents not printing",           "relevant_ids": [8, 9],       "category": "hardware"},
+    {"query": "printer driver issue",             "relevant_ids": [8, 9],       "category": "hardware"},
+    {"query": "network printer not found",        "relevant_ids": [8, 9],       "category": "hardware"},
+    {"query": "printing fails after restart",     "relevant_ids": [8, 9],       "category": "hardware"},
+
+    {"query": "no internet access",               "relevant_ids": [10, 11],     "category": "network"},
+    {"query": "network connection slow",          "relevant_ids": [10, 11],     "category": "network"},
+    {"query": "cannot access shared drive",       "relevant_ids": [10, 11],     "category": "network"},
+    {"query": "wifi not working",                 "relevant_ids": [10, 11],     "category": "network"},
+    {"query": "network adapter issue",            "relevant_ids": [10, 11],     "category": "network"},
+    {"query": "internet keeps disconnecting",     "relevant_ids": [10, 11],     "category": "network"},
+    {"query": "DNS resolution failure",           "relevant_ids": [10, 11],     "category": "network"},
+    {"query": "LAN connection unstable",          "relevant_ids": [10, 11],     "category": "network"},
+    {"query": "file transfer very slow",          "relevant_ids": [10, 11],     "category": "network"},
+    {"query": "network drive not accessible",     "relevant_ids": [10, 11],     "category": "network"},
+
+    {"query": "account locked",                   "relevant_ids": [12, 13],     "category": "account"},
+    {"query": "password reset request",           "relevant_ids": [12, 13],     "category": "account"},
+    {"query": "user cannot login",                "relevant_ids": [12, 13],     "category": "account"},
+    {"query": "forgot password",                  "relevant_ids": [12, 13],     "category": "account"},
+    {"query": "account disabled",                 "relevant_ids": [12, 13],     "category": "account"},
+    {"query": "login credentials not working",    "relevant_ids": [12, 13],     "category": "account"},
+    {"query": "active directory account locked",  "relevant_ids": [12, 13],     "category": "account"},
+    {"query": "need to reset my password",        "relevant_ids": [12, 13],     "category": "account"},
+    {"query": "too many failed login attempts",   "relevant_ids": [12, 13],     "category": "account"},
+    {"query": "cannot unlock user account",       "relevant_ids": [12, 13],     "category": "account"},
+]
+
+
+
+SIMILARITY_PAIRS = [
+    ("VPN login failed",        "cannot connect to VPN",      True),
+    ("VPN MFA issue",           "MFA token rejected on VPN",  True),
+    ("Outlook login problem",   "email not working",          True),
+    ("printer offline",         "print jobs stuck in queue",  True),
+    ("account locked",          "too many failed login attempts", True),
+    ("VPN login failed",        "printer offline",            False),
+    ("Outlook login problem",   "no internet access",         False),
+    ("account locked",          "VPN MFA issue",              False),
+    ("printer offline",         "email not working",          False),
+    ("network connection slow", "password reset request",     False),
 ]
